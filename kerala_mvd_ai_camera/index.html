@@ -53,10 +53,10 @@
         }
         .map-container iframe {
             position: absolute;
-            top: -48px; /* Adjust to hide the upper bar */
+            top: -48px; /* Hide the upper bar */
             left: 0;
             width: 100%;
-            height: calc(100% + 48px); /* Compensate for the cropped top */
+            height: calc(100% + 48px); /* Compensate for cropped top */
         }
     </style>
 </head>
@@ -98,7 +98,8 @@
                 ></iframe>
             </div>
             <a
-                href="https://www.google.com/maps/d/u/0/view?mid=16u5zSA8DD-rlHEvWGlVT-7bYSw9lx3I"
+                id="open-in-maps"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="inline-block mt-4 bg-blue-600 text-white py-2 px-4 rounded-lg text-center w-full md:w-auto hover:bg-blue-700"
@@ -131,5 +132,27 @@
             <p class="text-sm">Contact: <a href="mailto:info@keralamvdaicamera.in" class="underline">info@keralamvdaicamera.in</a></p>
         </div>
     </footer>
+
+    <!-- JavaScript to Handle Open in Google Maps -->
+    <script>
+        document.getElementById('open-in-maps').addEventListener('click', function(e) {
+            e.preventDefault();
+            const mapId = '16u5zSA8DD-rlHEvWGlVT-7bYSw9lx3I';
+            const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+            const mapsAppUrl = `comgooglemaps://?daddr=&mapmode=streetview&views=map&mid=${mapId}`;
+            const webUrl = `https://www.google.com/maps/d/u/0/view?mid=${mapId}`;
+
+            // Try opening in Google Maps app on mobile, fallback to web
+            if (isMobile) {
+                window.location.href = mapsAppUrl;
+                // Fallback to web URL after a short delay if app doesn't open
+                setTimeout(() => {
+                    window.location.href = webUrl;
+                }, 1000);
+            } else {
+                window.location.href = webUrl;
+            }
+        });
+    </script>
 </body>
 </html>
