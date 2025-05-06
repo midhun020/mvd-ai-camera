@@ -43,30 +43,6 @@
         }
     }
     </script>
-    <!-- Inline CSS to Hide Map Upper Bar -->
-    <style>
-        .map-container {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            height: 80vh; /* Adjusted for mobile */
-        }
-        .map-container iframe {
-            position: absolute;
-            top: -50px; /* Shift up to hide the top bar (adjust as needed) */
-            left: 0;
-            width: 100%;
-            height: calc(100% + 50px); /* Compensate for the shift */
-        }
-        @media (min-width: 768px) {
-            .map-container {
-                height: 96vh;
-            }
-            .map-container iframe {
-                height: calc(100% + 50px);
-            }
-        }
-    </style>
 </head>
 <body class="bg-gray-100 font-sans">
     <!-- Header -->
@@ -93,9 +69,9 @@
             <p class="text-gray-700 text-sm md:text-base mb-4">
                 View the interactive map of <strong>AI cameras</strong> and <strong>MVD cameras</strong> installed by the Kerala Motor Vehicles Department across highways and major roads.
             </p>
-            <div class="map-container">
+            <div class="w-full h-80 md:h-96">
                 <iframe
-                    src="https://www.google.com/maps/d/u/0/embed?mid=16u5zSA8DD-rlHEvWGlVT-7bYSw9lx3I&ehbc=2 determiner312F&noprof=1"
+                    src="https://www.google.com/maps/d/u/0/embed?mid=16u5zSA8DD-rlHEvWGlVT-7bYSw9lx3I&ehbc=2E312F&noprof=1"
                     width="100%"
                     height="100%"
                     style="border:0;"
@@ -136,7 +112,7 @@
     <footer class="bg-gray-800 text-white py-4">
         <div class="container mx-auto px-4">
             <p class="text-sm">© 2025 Kerala MVD AI Camera Tracker. All rights reserved.</p>
-            <p class="text-sm">Contact: <a href="mailto:info@keralamvdaicamera.in" class="underline">info@keralamvdaicamera.in</a></p>
+            <p class="text-sm">Контакт: <a href="mailto:info@keralamvdaicamera.in" class="underline">info@keralamvdaicamera.in</a></p>
         </div>
     </footer>
 </body>
