@@ -9,21 +9,66 @@
     <meta name="author" content="Kerala MVD AI Camera Tracker">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.keralamvdaicamera.in/" />
-    <!-- Open Graph Tags for Social Media -->
+    <!-- Open Graph Tags -->
     <meta property="og:title" content="Kerala MVD AI Camera Map - Find AI Camera Locations">
     <meta property="og:description" content="Interactive map of Kerala MVD AI camera locations for mobile users. Find traffic surveillance cameras across Kerala.">
-    <meta property="og:image" content="https://www.keralamvdaicamera.in/images/ai-camera-kerala.jpg">
+    <meta property="og:image" content="https://www.keralamvdaicamera.in/images/ai-camera-kerala.webp">
     <meta property="og:url" content="https://www.keralamvdaicamera.in/">
     <meta property="og:type" content="website">
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Kerala MVD AI Camera Map - Find AI Camera Locations">
     <meta name="twitter:description" content="Interactive map of Kerala MVD AI camera locations for mobile users.">
-    <meta name="twitter:image" content="https://www.keralamvdaicamera.in/images/ai-camera-kerala.jpg">
-    <!-- Tailwind CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <meta name="twitter:image" content="https://www.keralamvdaicamera.in/images/ai-camera-kerala.webp">
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="icon" type="image/webp" href="/images/favicon.webp">
+    <!-- Inlined CSS (Tailwind subset + map-container) -->
+    <style>
+        body { background-color: #f3f4f6; font-family: sans-serif; }
+        header { background-color: #2563eb; color: white; padding: 1rem; }
+        .container { width: 100%; max-width: 1280px; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; }
+        h1 { font-size: 1.5rem; font-weight: 700; line-height: 1.2; }
+        h2 { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem; }
+        p { color: #4b5563; font-size: 0.875rem; margin-bottom: 1rem; }
+        strong { font-weight: 700; }
+        a { color: white; text-decoration: underline; }
+        .text-3xl { font-size: 1.875rem; }
+        .text-2xl { font-size: 1.5rem; }
+        .text-base { font-size: 1rem; }
+        .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+        .py-6 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+        .px-4 { padding-left: 1rem; padding-right: 1rem; }
+        .mt-2 { margin-top: 0.5rem; }
+        .mt-4 { margin-top: 1rem; }
+        .mb-3 { margin-bottom: 0.75rem; }
+        .mb-4 { margin-bottom: 1rem; }
+        .mb-6 { margin-bottom: 1.5rem; }
+        .bg-gray-200 { background-color: #e5e7eb; }
+        .bg-gray-800 { background-color: #1f2937; }
+        .bg-blue-600 { background-color: #2563eb; }
+        .bg-blue-700 { background-color: #1d4ed8; }
+        .text-gray-600 { color: #4b5563; }
+        .text-gray-700 { color: #374151; }
+        .text-white { color: white; }
+        .text-sm { font-size: 0.875rem; }
+        .font-bold { font-weight: 700; }
+        .font-semibold { font-weight: 600; }
+        .h-24 { height: 6rem; }
+        .w-full { width: 100%; }
+        .flex { display: flex; }
+        .items-center { align-items: center; }
+        .justify-center { justify-content: center; }
+        .rounded-lg { border-radius: 0.5rem; }
+        .hover\:bg-blue-700:hover { background-color: #1d4ed8; }
+        .map-container { position: relative; overflow: hidden; width: 100%; height: 320px; }
+        .map-container iframe { position: absolute; top: -60px; left: 0; width: 100%; height: calc(100% + 60px); border: 0; }
+        @media (min-width: 768px) {
+            h1 { font-size: 1.875rem; }
+            h2 { font-size: 1.5rem; }
+            p { font-size: 1rem; }
+            .md\:w-auto { width: auto; }
+        }
+    </style>
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
     {
@@ -43,35 +88,18 @@
         }
     }
     </script>
-    <!-- CSS to hide the upper bar of the Google Map -->
-    <style>
-        .map-container {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            height: 320px; /* Fixed height for square map */
-        }
-        .map-container iframe {
-            position: absolute;
-            top: -60px; /* Offset to hide the top bar */
-            left: 0;
-            width: 100%;
-            height: calc(100% + 60px); /* Adjust height to compensate for offset */
-            border: 0;
-        }
-    </style>
 </head>
-<body class="bg-gray-100 font-sans">
+<body>
     <!-- Header -->
-    <header class="bg-blue-600 text-white py-4">
-        <div class="container mx-auto px-4">
+    <header class="py-4">
+        <div class="container">
             <h1 class="text-2xl md:text-3xl font-bold">Kerala MVD AI Camera Map</h1>
             <p class="mt-2 text-sm md:text-base">Find AI Camera Locations on Your Mobile</p>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main class="container mx-auto px-4 py-6">
+    <main class="container py-6">
         <!-- Ad Section (Top) -->
         <section class="mb-6">
             <div class="bg-gray-200 h-24 flex items-center justify-center">
@@ -85,7 +113,7 @@
             <h2 class="text-xl md:text-2xl font-semibold mb-3">Kerala MVD AI Camera Locations</h2>
             <p class="text-gray-700 text-sm md:text-base mb-4">
                 View the interactive map of <strong>AI cameras</strong> and <strong>MVD cameras</strong> installed by the Kerala Motor Vehicles Department across highways and major roads.
-            </p>
+            </ Wunderp>
             <div class="map-container">
                 <iframe
                     src="https://www.google.com/maps/d/u/0/embed?mid=16u5zSA8DD-rlHEvWGlVT-7bYSw9lx3I&ehbc=2E312F&noprof=1"
@@ -126,7 +154,7 @@
 
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-4">
-        <div class="container mx-auto px-4">
+        <div class="container">
             <p class="text-sm">© 2025 Kerala MVD AI Camera Tracker. All rights reserved.</p>
             <p class="text-sm">Contact: <a href="mailto:info@keralamvdaicamera.in" class="underline">info@keralamvdaicamera.in</a></p>
         </div>
