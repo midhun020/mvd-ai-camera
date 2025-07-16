@@ -378,6 +378,46 @@
                 font-size: 15px;
             }
         }
+        /* Native Banner Ad Styles */
+.ad-section {
+    background: white;
+    margin: 12px 8px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+.native-ad-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.native-ad-container > div {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+/* Mobile Optimizations for Native Banner */
+@media (max-width: 480px) {
+    .ad-section {
+        margin: 8px 4px;
+        padding: 10px 0;
+    }
+
+    .native-ad-container > div {
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 360px) {
+    .native-ad-container > div {
+        max-width: 280px;
+    }
+}
     </style>
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
@@ -415,7 +455,12 @@
             </div>
         </div>
     </header>
-
+<section class="content-section ad-section" style="text-align: center; padding: 12px 0;">
+    <div class="native-ad-container">
+        <script async="async" data-cfasync="false" src="//pl27183042.profitableratecpm.com/e2fa8fb32c0acdf5ee62f45cf05824f6/invoke.js"></script>
+        <div id="container-e2fa8fb32c0acdf5ee62f45cf05824f6"></div>
+    </div>
+</section>
     <!-- Map Hero Section - Moved to Top -->
     <section class="map-hero">
         <div class="map-header">
