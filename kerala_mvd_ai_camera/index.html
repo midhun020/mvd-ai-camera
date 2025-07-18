@@ -473,17 +473,16 @@
         <div class="map-container" id="map-container">
             <img src="/images/map-placeholder.webp" alt="Kerala MVD AI Camera Map Loading..." loading="lazy">
         </div>
-        <div class="cta-container">
-            <a
-                href="https://www.google.com/maps/d/u/0/viewer?mid=16u5zSA8DD-rlHEvWGlVT-7bYSw9lx3I&femb=1&ll=11.510372494407866%2C77.17757246875001&z=6"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="cta-button"
-            >
-                <span class="cta-icon">🗺️</span>
-                Open Full Map in Google Maps
-            </a>
-        </div>
+      <div class="cta-container">
+    <a
+        href="#"
+        id="cta-map-button"
+        class="cta-button"
+    >
+        <span class="cta-icon">🗺️</span>
+        Open Full Map in Google Maps
+    </a>
+</div>
     </section>
 <!-- Ad Banner Section -->
 <section class="content-section" style="text-align: center; padding: 16px;">
@@ -583,6 +582,26 @@
 
     <!-- Enhanced Lazy-Load Google Maps -->
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const ctaButton = document.getElementById('cta-map-button');
+    const adLink = 'https://www.profitableratecpm.com/tju96byb31?key=bfde8126a5d388aa81f68d657c391a1f';
+    const googleMapsLink = 'https://www.google.com/maps/d/u/0/viewer?mid=16u5zSA8DD-rlHEvWGlVT-7bYSw9lx3I&femb=1&ll=11.510372494407866%2C77.17757246875001&z=6';
+    
+    // Check if the button was clicked before using localStorage
+    const hasClicked = localStorage.getItem('ctaClicked');
+
+    ctaButton.addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent default anchor behavior
+        if (!hasClicked) {
+            // First click: redirect to Adsterra link and set flag
+            localStorage.setItem('ctaClicked', 'true');
+            window.open(adLink, '_blank', 'noopener,noreferrer');
+        } else {
+            // Subsequent clicks: redirect to Google Maps link
+            window.open(googleMapsLink, '_blank', 'noopener,noreferrer');
+        }
+    });
+});
         function loadMap() {
             const container = document.getElementById('map-container');
             const iframe = document.createElement('iframe');
