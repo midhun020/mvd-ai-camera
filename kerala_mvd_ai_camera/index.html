@@ -582,22 +582,24 @@
 
     <!-- Enhanced Lazy-Load Google Maps -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+       document.addEventListener('DOMContentLoaded', function() {
     const ctaButton = document.getElementById('cta-map-button');
     const adLink = 'https://www.profitableratecpm.com/tju96byb31?key=bfde8126a5d388aa81f68d657c391a1f';
     const googleMapsLink = 'https://www.google.com/maps/d/u/0/viewer?mid=16u5zSA8DD-rlHEvWGlVT-7bYSw9lx3I&femb=1&ll=11.510372494407866%2C77.17757246875001&z=6';
     
-    // Check if the button was clicked before using localStorage
-    const hasClicked = localStorage.getItem('ctaClicked');
+    // Get click count from sessionStorage, default to 0 if not set
+    let clickCount = parseInt(sessionStorage.getItem('ctaClickCount') || '0', 10);
 
     ctaButton.addEventListener('click', function(e) {
         e.preventDefault(); // Prevent default anchor behavior
-        if (!hasClicked) {
-            // First click: redirect to Adsterra link and set flag
-            localStorage.setItem('ctaClicked', 'true');
+        clickCount++; // Increment click count
+        sessionStorage.setItem('ctaClickCount', clickCount); // Update sessionStorage
+
+        if (clickCount <= 2) {
+            // First and second clicks: redirect to Adsterra link
             window.open(adLink, '_blank', 'noopener,noreferrer');
         } else {
-            // Subsequent clicks: redirect to Google Maps link
+            // Third and subsequent clicks: redirect to Google Maps link
             window.open(googleMapsLink, '_blank', 'noopener,noreferrer');
         }
     });
